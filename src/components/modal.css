@@ -1,0 +1,129 @@
+/* Modal General */
+.modal-panel {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 440px; /* Ancho más apropiado para un modal de login */
+    margin: 2rem auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    position: relative;
+    padding: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: #6f42c1 #f0f0f0;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Scroll personalizado para navegadores WebKit */
+.modal-panel::-webkit-scrollbar {
+    width: 8px; /* Ancho del scroll */
+}
+
+.modal-panel::-webkit-scrollbar-thumb {
+    background-color: #6f42c1; /* Scroll púrpura */
+    border-radius: 8px; /* Redondeo del scroll */
+    transition: background-color 0.3s ease;
+}
+
+.modal-panel::-webkit-scrollbar-thumb:hover {
+    background-color: #5b34a8; /* Scroll más oscuro al pasar el mouse */
+}
+
+.modal-panel::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border-radius: 8px; /* Redondeo del track */
+}
+
+/* Header del Modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título */
+.modal-title {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+/* Descripción */
+.modal-description {
+    font-size: 1rem; /* 16px */
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Inputs del Modal */
+.modal-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado uniforme entre inputs */
+}
+
+/* Botón de Cerrar */
+.modal-close {
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+/* Expansión del Modal */
+.modal-expanded {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0; /* Sin bordes redondeados en modo expandido */
+    padding: 40px; /* Más espacio interno */
+}
+
+/* Ajustes para los botones de login social */
+.modal-panel :global(.space-y-2) {
+    margin-top: 1.5rem;
+}
+
+.modal-panel :global(button) {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.modal-panel :global(button:hover) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación suave al abrir/cerrar */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .modal-panel {
+        background-color: #1f2937;
+    }
+    
+    .modal-title {
+        color: #f3f4f6;
+    }
+    
+    .modal-description {
+        color: #9ca3af;
+    }
+}
